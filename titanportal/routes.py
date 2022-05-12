@@ -23,3 +23,13 @@ def add_department():
         db.session.commit()
         return redirect(url_for("departments"))
     return render_template("add_department.html")
+
+
+@app.route("/edit_department/<int:department_id>", methods=["GET", "POST"])
+def edit_department(department_id):
+    department = Department.query.get_or_404(department_id)
+    if request.method == "POST":
+        department.department_name = request.form.get("department_name")
+        db.session.commit()
+        return redirect(url_for("departments"))
+    return render_template("edit_department.html", department=department)
