@@ -41,3 +41,19 @@ def delete_department(department_id):
     db.session.delete(department)
     db.session.commit()
     return redirect(url_for("departments"))
+
+
+@app.route("/add_colleague", methods=["GET", "POST"])
+def add_colleague():
+    departments = list(Department.query.order_by(Department.department_name).all())
+    if request.method == "POST":
+        colleague = Colleague(
+            first_name=request.form.get("first_name"),
+            last_name=request.form.get("last_name"),
+            role=request.form.get("role"),
+            department_id=request.form.get("department_id")
+        )
+        db.session.add(colleague)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("add_colleague.html", departments=departments)

@@ -23,7 +23,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="">Colleague Search</a></li>
                     <li><a href="">Personal Info</a></li>
-                    <li><a href="">New Colleague</a></li>
+                    <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
                     <li><a href="">New Personal Info</a></li>
                     <li><a href="{{ url_for('departments') }}">Departments</a></li>
                     <li><a href="{{ url_for('home') }}">Login</a></li>
@@ -34,7 +34,7 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="">Colleague Search</a></li>
             <li><a href="">Personal Info</a></li>
-            <li><a href="">New Colleague</a></li>
+            <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
             <li><a href="">New Personal Info</a></li>
             <li><a href="{{ url_for('departments') }}">Departments</a></li>
             <li><a href="{{ url_for('home') }}">Login</a></li>
