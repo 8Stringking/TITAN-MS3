@@ -33,3 +33,11 @@ def edit_department(department_id):
         db.session.commit()
         return redirect(url_for("departments"))
     return render_template("edit_department.html", department=department)
+
+
+@app.route("/delete_department/<int:department_id>")
+def delete_department(department_id):
+    department = Department.query.get_or_404(department_id)
+    db.session.delete(department)
+    db.session.commit()
+    return redirect(url_for("departments"))
