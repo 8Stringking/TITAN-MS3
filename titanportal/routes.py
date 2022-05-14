@@ -34,6 +34,7 @@ def edit_department(department_id):
     if request.method == "POST":
         department.department_name = request.form.get("department_name")
         db.session.commit()
+        flash("Department Successfully Edited")
         return redirect(url_for("departments"))
     return render_template("edit_department.html", department=department)
 
@@ -43,6 +44,7 @@ def delete_department(department_id):
     department = Department.query.get_or_404(department_id)
     db.session.delete(department)
     db.session.commit()
+    flash("Department Successfully Deleted")
     return redirect(url_for("departments"))
 
 
@@ -59,6 +61,7 @@ def add_colleague():
         )
         db.session.add(colleague)
         db.session.commit()
+        flash("Colleague Successfully Added")
         return redirect(url_for("home"))
     return render_template("add_colleague.html", departments=departments)
 
@@ -74,6 +77,7 @@ def edit_colleague(colleague_id):
         colleague.role = request.form.get("role"),
         colleague.department_id = request.form.get("department_id")
         db.session.commit()
+        flash("Colleague Successfully Edited")
         return redirect(url_for("home"))
     return render_template("edit_colleague.html", colleague=colleague, departments=departments)
 
@@ -83,4 +87,5 @@ def delete_colleague(colleague_id):
     colleague = Colleague.query.get_or_404(colleague_id)
     db.session.delete(colleague)
     db.session.commit()
+    flash("Colleague Successfully Deleted")
     return redirect(url_for("home"))
