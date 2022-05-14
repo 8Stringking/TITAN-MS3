@@ -1,16 +1,18 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, flash, request, redirect, url_for
 from titanportal import app, db
 from titanportal.models import Department, Colleague
 
 
 @app.route("/")
 def home():
-    return render_template("colleagues.html")
+    colleagues = list(Colleague.query.order_by(Colleague.id).all())
+    return render_template("colleagues.html", colleagues=colleagues)
 
 
 @app.route("/departments")
 def departments():
-    departments = list(Department.query.order_by(Department.department_name).all())
+    departments = list(Department.query.order_by(
+        Department.department_name).all())
     return render_template("departments.html", departments=departments)
 
 
@@ -21,6 +23,7 @@ def add_department():
             department_name=request.form.get("department_name"))
         db.session.add(department)
         db.session.commit()
+        flash("New Department Added")
         return redirect(url_for("departments"))
     return render_template("add_department.html")
 
@@ -45,7 +48,8 @@ def delete_department(department_id):
 
 @app.route("/add_colleague", methods=["GET", "POST"])
 def add_colleague():
-    departments = list(Department.query.order_by(Department.department_name).all())
+    departments = list(Department.query.order_by(
+        Department.department_name).all())
     if request.method == "POST":
         colleague = Colleague(
             first_name=request.form.get("first_name"),
@@ -57,3 +61,26 @@ def add_colleague():
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_colleague.html", departments=departments)
+
+
+@app.route("/edit_colleague/<int:colleague_id>", methods=["GET", "POST"])
+def edit_colleague(colleague_id):
+    colleague = Colleague.query.get_or_404(colleague_id)
+    departments = list(Department.query.order_by(
+        Department.department_name).all())
+    if request.method == "POST":
+        colleague.first_name = request.form.get("first_name"),
+        colleague.last_name = request.form.get("last_name"),
+        colleague.role = request.form.get("role"),
+        colleague.department_id = request.form.get("department_id")
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("edit_colleague.html", colleague=colleague, departments=departments)
+
+
+@app.route("/delete_colleague/<int:colleague_id>")
+def delete_colleague(colleague_id):
+    colleague = Colleague.query.get_or_404(colleague_id)
+    db.session.delete(colleague)
+    db.session.commit()
+    return redirect(url_for("home"))
