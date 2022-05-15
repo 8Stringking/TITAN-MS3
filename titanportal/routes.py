@@ -89,3 +89,12 @@ def delete_colleague(colleague_id):
     db.session.commit()
     flash("Colleague Successfully Deleted")
     return redirect(url_for("home"))
+
+
+@app.route("/colleague_search/<int:colleague_id>", methods=["GET", "POST"])
+def colleague_search(colleague_id):
+    colleague = Colleague.query.get_or_404(colleague_id)
+    if request.method == "POST":
+        colleague.query.filter_by(colleague.colleague_id, colleague.first_name, colleague.last_name, colleague.department_id)
+    return render_template("colleagues.html", colleagues=colleagues)
+

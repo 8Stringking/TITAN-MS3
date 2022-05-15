@@ -1,16 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text center-align">Colleagues</h3>
+<h3 class="light-blue-text center-align">Colleague Search</h3>
 
-<div class="row">
-    <div class="col s12 center-align">
-        <a href="{{ url_for('add_colleague') }}" class="btn-large light-blue">
-            Add Colleague <i class="fas fa-plus-square right"></i>
-        </a>
-    </div>
+<div class="row card-panel grey lighten-5">
+    <form class="col s12" method="POST" action="{{ url_for('colleague_search') }}">
+        <div class="row valign-wrapper center-align">
+            <div class="input-field col s12 m8">
+                <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                <input type="text" placeholder="Search Colleague by Name or Department" 
+                name="query" id="query" class="validate" required>
+                <label for="query">Search Colleagues</label>
+            </div>
+            <div class="col s12 m4">
+                <a href="{{ url_for('home') }}" class="red btn text-shadow">Reset</a>
+                <button type="submit" class="light-blue darken-1 btn text-shadow">
+                    <i class="fas fa-search left"></i> Search
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
-
+{% if colleagues|length > 0 %}
 <ul class="collapsible">
     {% for colleague in colleagues %}
     <li>
@@ -40,4 +51,7 @@
     </li>
     {% endfor %}
   </ul>
+{% else %}
+        <h3 class="red-text text-darken-4 center-align">No Results Found</h3>
+{% endif %}
 {% endblock %}
