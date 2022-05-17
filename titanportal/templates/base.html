@@ -16,13 +16,13 @@
 <body>
     <header>   
         <!--top nav bar-->
-        <nav class="black">
+        <nav class="transparent">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo">Titan</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
-                    <li><a href="">Personal Info</a></li>
+                    <li><a href="">Personal Info Search</a></li>
                     <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
                     <li><a href="">New Personal Info</a></li>
                     <li><a href="{{ url_for('departments') }}">Departments</a></li>
@@ -33,7 +33,7 @@
         <!--mobile nav bar-->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
-            <li><a href="">Personal Info</a></li>
+            <li><a href="">Personal Info Search</a></li>
             <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
             <li><a href="">New Personal Info</a></li>
             <li><a href="{{ url_for('departments') }}">Departments</a></li>

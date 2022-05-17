@@ -4,6 +4,9 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url("https://i.postimg.cc/qRkBQkHD/page-background.jpg");
+    max-width:100%;
+    height: auto;
   }
 
   main {
@@ -12,4 +15,16 @@ body {
 
   .flashes h4 {
     line-height: 2;
+}
+
+nav {
+  background-image: url("https://i.postimg.cc/9FdKpy1b/header-fixed.jpg");
+  background-image: cover;
+  max-width: 100%;
+}
+
+footer {
+  background-image: url("https://i.postimg.cc/kMfttHPv/footer-fixed.jpg");
+  background-image: cover;
+  max-width: 100%;
 }
