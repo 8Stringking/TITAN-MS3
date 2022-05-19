@@ -99,3 +99,9 @@ def delete_colleague(colleague_id):
     # if request.method == "POST":
         # colleague.query.filter_by(colleague.colleague_id, colleague.first_name, colleague.last_name, colleague.department_id)
     # return render_template("colleagues.html", colleagues=colleagues)
+
+
+@app.route("/get_associate")
+def get_associate():
+    associate = list(mongo.db.associate.find())
+    return render_template("personal_info.html", associate=associate)
