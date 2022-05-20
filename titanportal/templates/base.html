@@ -18,7 +18,7 @@
         <!--top nav bar-->
         <nav class="transparent">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Titan</a>
+                <a href="#!" class="brand-logo"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
@@ -31,7 +31,7 @@
             </div>
         </nav>
         <!--mobile nav bar-->
-        <ul class="sidenav" id="mobile-demo">
+        <ul class="transparent sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
             <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
             <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
@@ -47,7 +47,7 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flash">
-                        <h4 class="light-blue darken-1 center-align">{{ message }}</h4>
+                        <h4 class="blue darken-4 center-align">{{ message }}</h4>
                     </div>
                 {% endfor %}
             {% endif %}
@@ -61,7 +61,7 @@
     </main>
 
     
-    <footer class="page-footer black">
+    <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
                 <a class="white-text right" href="https://codeinstitute.net" target="_blank">&copy; Code Institute</a>

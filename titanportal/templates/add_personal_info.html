@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text center-align">Add Personal Info</h3>
+<h3 class="blue-text text-darken-4 center-align">Add Personal Info</h3>
 
 <div class="row card-panel transparent">
     <form class="col s12" method="POST" action="{{ url_for('add_associate') }}">
       <!--First name-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="first_name" name="first_name" type="text" minlength="2" maxlength="25" class="validate" required>
           <label for="first_name">First Name</label>
         </div>
@@ -16,7 +16,7 @@
       <!--Last name-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="last_name" name="last_name" type="text" minlength="2" maxlength="25" class="validate" required>
           <label for="last_name">Last Name</label>
         </div>
@@ -24,7 +24,7 @@
       <!--Colleague Number-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="colleague_number" name="colleague_number" type="number" class="validate" required>
           <label for="colleague_number">Colleague Number</label>
         </div>
@@ -32,7 +32,7 @@
       <!--Department-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="department" name="department" type="text" minlength="2" maxlength="25" class="validate" required>
           <label for="department">Department</label>
         </div>
@@ -40,7 +40,7 @@
       <!--Role-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="role" name="role" type="text" minlength="5" maxlength="50" class="validate" required>
           <label for="role">Role</label>
         </div>
@@ -48,7 +48,7 @@
       <!--Contact-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="contact" name="contact" type="number" class="validate" required>
           <label for="contact">Contact</label>
         </div>
@@ -56,7 +56,7 @@
       <!--Date of birth-->
       <div class="row">
         <div class="input-field col s12">
-          <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+          <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
           <input id="date_of_birth" name="date_of_birth" type="date" class="datepicker validate" required>
           <label for="date_of_birth">Date Of Birth</label>
         </div>
@@ -64,7 +64,7 @@
       <!--submit button-->
       <div class="row">
         <div class="col s12 center-align">
-          <button type="submit" class="btn-large light-blue">
+          <button type="submit" class="btn-large blue darken-4">
             Add Information <i class="fas fa-plus-square right"></i>
           </button>
         </div>

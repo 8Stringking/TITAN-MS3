@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text center-align">Colleague Search</h3>
+<h3 class="blue-text text-darken-4 center-align">Colleague Search</h3>
 
 <div class="row card-panel transparent">
     <form class="col s12" method="POST" action="">
         <div class="row valign-wrapper center-align">
             <div class="input-field col s12 m8">
-                <i class="fas fa-search prefix light-blue-text text-darken-4"></i>
+                <i class="fas fa-search prefix blue-text text-darken-4"></i>
                 <input type="text" placeholder="Search Colleague by Name or Department" 
                 name="query" id="query" class="validate" required>
                 <label for="query">Search Colleagues</label>
@@ -25,7 +25,7 @@
 <ul class="collapsible">
     {% for colleague in colleagues %}
     <li>
-      <div class="collapsible-header white-text light-blue darken-1">
+      <div class="collapsible-header white-text blue darken-4">
           <i class="fas fa-caret-down"></i>
           <strong>{{ colleague.first_name }}</strong> {{ colleague. last_name }}
       </div>

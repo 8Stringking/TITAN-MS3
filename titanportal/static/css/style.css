@@ -18,13 +18,18 @@ body {
 }
 
 nav {
-  background-image: url("https://i.postimg.cc/9FdKpy1b/header-fixed.jpg");
+  background-image: url("https://i.postimg.cc/MHPfsCVZ/new-header-1-resize.jpg");
   background-image: cover;
   max-width: 100%;
 }
 
 footer {
-  background-image: url("https://i.postimg.cc/kMfttHPv/footer-fixed.jpg");
+  background-image: url("https://i.postimg.cc/MHPfsCVZ/new-header-1-resize.jpg");
   background-image: cover;
+  max-width: 100%;
+}
+
+.sidenav {
+  background-image: url("https://i.postimg.cc/qRkBQkHD/page-background.jpg");
   max-width: 100%;
 }
