@@ -105,3 +105,22 @@ def delete_colleague(colleague_id):
 def get_associate():
     associate = list(mongo.db.associate.find())
     return render_template("personal_info.html", associate=associate)
+
+
+@app.route("/add_associate", methods=["GET", "POST"])
+def add_associate():
+    if request.method == "POST":
+        associate = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "colleague_number": request.form.get("colleague_number"),
+            "department": request.form.get("department"),
+            "role": request.form.get("role"),
+            "contact": request.form.get("contact"),
+            "date_of_birth": request.form.get("date_of_birth"),
+        }
+        mongo.db.associate.insert_one(associate)
+        flash("Personal Information Successfully Added")
+        return redirect(url_for("get_associate"))
+
+    return render_template("add_personal_info.html")

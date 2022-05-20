@@ -24,7 +24,7 @@
                     <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
                     <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
                     <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
-                    <li><a href="">New Personal Info</a></li>
+                    <li><a href="{{ url_for('add_associate') }}">New Personal Info</a></li>
                     <li><a href="{{ url_for('departments') }}">Departments</a></li>
                     <li><a href="">Login</a></li>
                 </ul>
@@ -33,9 +33,9 @@
         <!--mobile nav bar-->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
-            <li><a href="">Personal Info Search</a></li>
+            <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
             <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
-            <li><a href="">New Personal Info</a></li>
+            <li><a href="{{ url_for('add_associate') }}">New Personal Info</a></li>
             <li><a href="{{ url_for('departments') }}">Departments</a></li>
             <li><a href="">Login</a></li>
         </ul>
