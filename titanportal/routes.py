@@ -144,3 +144,10 @@ def edit_associate(associate_id):
 
     associate = mongo.db.associate.find_one({"_id": ObjectId(associate_id)})
     return render_template("edit_personal_info.html", associate=associate)
+
+
+@app.route("/delete_associate/<associate_id>")
+def delete_associate(associate_id):
+    mongo.db.associate.delete_one({"_id": ObjectId(associate_id)})
+    flash("Personal Information Successfully Deleted")
+    return redirect(url_for("get_associate"))
