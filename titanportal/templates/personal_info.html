@@ -25,7 +25,7 @@
 <ul class="collapsible">
     {% for associate in associate %}
     <li>
-      <div class="collapsible-header white-text light-blue darken-1">
+      <div class="collapsible-header white-text light-blue darken-1 text-shadow">
           <i class="fas fa-caret-down"></i>
           <strong>{{ associate.first_name }}</strong> {{ associate.last_name }}
       </div>
@@ -35,10 +35,8 @@
           <p> {{ associate.colleague_number }}</p>
           <p> {{ associate.contact }}</p>
           <p> {{ associate.date_of_birth }}</p>
-          <div>
-            <a href="{{ url_for('edit_associate', associate_id=associate.id) }}" class="btn green accent-4">Edit</a>
-            <a href="" class="btn red modal-trigger">Delete</a>
-          </div>
+            <a href="{{ url_for('edit_associate', associate_id=associate._id) }}" class="btn green accent-4">Edit</a>
+            <a href="" class="btn red accent-4">Delete</a>
       </div>
     </li>
     {% endfor %}

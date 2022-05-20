@@ -117,7 +117,7 @@ def add_associate():
             "department": request.form.get("department"),
             "role": request.form.get("role"),
             "contact": request.form.get("contact"),
-            "date_of_birth": request.form.get("date_of_birth"),
+            "date_of_birth": request.form.get("date_of_birth")
         }
         mongo.db.associate.insert_one(associate)
         flash("Personal Information Successfully Added")
@@ -136,10 +136,11 @@ def edit_associate(associate_id):
             "department": request.form.get("department"),
             "role": request.form.get("role"),
             "contact": request.form.get("contact"),
-            "date_of_birth": request.form.get("date_of_birth"),
+            "date_of_birth": request.form.get("date_of_birth")
         }
         mongo.db.associate.update_one({"_id": ObjectId(associate_id)},{"$set": submit})
         flash("Personal Information Successfully Updated")
+        return redirect(url_for("get_associate"))
 
     associate = mongo.db.associate.find_one({"_id": ObjectId(associate_id)})
     return render_template("edit_personal_info.html", associate=associate)
