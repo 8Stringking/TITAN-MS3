@@ -151,3 +151,10 @@ def delete_associate(associate_id):
     mongo.db.associate.delete_one({"_id": ObjectId(associate_id)})
     flash("Personal Information Successfully Deleted")
     return redirect(url_for("get_associate"))
+
+
+@app.route("/search_info", methods=["GET", "POST"])
+def search_info():
+    query = request.form.get("query")
+    associate = list(mongo.db.associate.find({"$text": {"$search": query}}))
+    return render_template("personal_info.html", associate=associate)
