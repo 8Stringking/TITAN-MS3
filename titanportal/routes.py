@@ -124,3 +124,22 @@ def add_associate():
         return redirect(url_for("get_associate"))
 
     return render_template("add_personal_info.html")
+
+
+@app.route("/edit_associate/<associate_id>", methods=["GET", "POST"])
+def edit_associate(associate_id):
+    if request.method == "POST":
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "colleague_number": request.form.get("colleague_number"),
+            "department": request.form.get("department"),
+            "role": request.form.get("role"),
+            "contact": request.form.get("contact"),
+            "date_of_birth": request.form.get("date_of_birth"),
+        }
+        mongo.db.associate.update_one({"_id": ObjectId(associate_id)},{"$set": submit})
+        flash("Personal Information Successfully Updated")
+
+    associate = mongo.db.associate.find_one({"_id": ObjectId(associate_id)})
+    return render_template("edit_personal_info.html", associate=associate)
