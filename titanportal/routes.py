@@ -7,8 +7,44 @@ from titanportal.models import Department, Colleague
 
 @app.route("/")
 def home():
-    colleagues = list(Colleague.query.order_by(Colleague.id).all())
-    return render_template("colleagues.html", colleagues=colleagues)
+    return render_template("index.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "colleague_search", username=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("index.html")
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -34,6 +70,12 @@ def register():
         return redirect(url_for("home", username=session["user"]))
 
     return render_template("register.html")
+
+
+@app.route("/colleague_search")
+def colleague_search():
+    colleagues = list(Colleague.query.order_by(Colleague.id).all())
+    return render_template("colleagues.html", colleagues=colleagues)
 
 
 @app.route("/departments")
@@ -89,7 +131,7 @@ def add_colleague():
         db.session.add(colleague)
         db.session.commit()
         flash("Colleague Successfully Added")
-        return redirect(url_for("home"))
+        return redirect(url_for("colleague_search"))
     return render_template("add_colleague.html", departments=departments)
 
 
@@ -105,7 +147,7 @@ def edit_colleague(colleague_id):
         colleague.department_id = request.form.get("department_id")
         db.session.commit()
         flash("Colleague Successfully Edited")
-        return redirect(url_for("home"))
+        return redirect(url_for("colleague_search"))
     return render_template("edit_colleague.html", colleague=colleague, departments=departments)
 
 
@@ -115,7 +157,7 @@ def delete_colleague(colleague_id):
     db.session.delete(colleague)
     db.session.commit()
     flash("Colleague Successfully Deleted")
-    return redirect(url_for("home"))
+    return redirect(url_for("colleague_search"))
 
 
 # @app.route("/colleague_search/<int:colleague_id>", methods=["GET", "POST"])
@@ -183,5 +225,3 @@ def search_info():
     query = request.form.get("query")
     associate = list(mongo.db.associate.find({"$text": {"$search": query}}))
     return render_template("personal_info.html", associate=associate)
-
-

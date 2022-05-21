@@ -21,25 +21,27 @@
                 <a href="#!" class="brand-logo"></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
+                    <li><a href="{{ url_for('colleague_search') }}">Colleague Search</a></li>
                     <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
                     <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
                     <li><a href="{{ url_for('add_associate') }}">New Personal Info</a></li>
                     <li><a href="{{ url_for('departments') }}">Departments</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
-                    <li><a href="">Login</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 </ul>
             </div>
         </nav>
         <!--mobile nav bar-->
         <ul class="transparent sidenav" id="mobile-demo">
-            <li><a href="{{ url_for('home') }}">Colleague Search</a></li>
+            <li><a href="{{ url_for('colleague_search') }}">Colleague Search</a></li>
             <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
             <li><a href="{{ url_for('add_colleague') }}">New Colleague</a></li>
             <li><a href="{{ url_for('add_associate') }}">New Personal Info</a></li>
             <li><a href="{{ url_for('departments') }}">Departments</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="">Login</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
         </ul>
     </header>
 

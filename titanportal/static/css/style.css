@@ -1,5 +1,3 @@
-/* sticky footer css */
-
 body {
     display: flex;
     min-height: 100vh;
@@ -9,15 +7,7 @@ body {
     height: auto;
   }
 
-register-background {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-image: url("https://i.postimg.cc/bN3QZRh2/login-background-new.jpg");
-    max-width:100%;
-    height: auto;
-  }
-
+/* sticky footer css */
   main {
     flex: 1 0 auto;
   }
@@ -41,4 +31,10 @@ footer {
 .sidenav {
   background-image: url("https://i.postimg.cc/qRkBQkHD/page-background.jpg");
   max-width: 100%;
+}
+
+.titan-logo {
+  max-width: 50%;
+  height:auto;
+  margin-left:26%;
 }
