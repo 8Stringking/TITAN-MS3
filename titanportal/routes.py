@@ -11,6 +11,11 @@ def home():
     return render_template("colleagues.html", colleagues=colleagues)
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
 @app.route("/departments")
 def departments():
     departments = list(Department.query.order_by(
@@ -158,3 +163,5 @@ def search_info():
     query = request.form.get("query")
     associate = list(mongo.db.associate.find({"$text": {"$search": query}}))
     return render_template("personal_info.html", associate=associate)
+
+
