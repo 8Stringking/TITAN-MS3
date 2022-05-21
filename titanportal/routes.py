@@ -87,6 +87,11 @@ def departments():
 
 @app.route("/add_department", methods=["GET", "POST"])
 def add_department():
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage departments!")
+        return redirect(url_for("departments"))
+
     if request.method == "POST":
         department = Department(
             department_name=request.form.get("department_name"))
@@ -99,6 +104,11 @@ def add_department():
 
 @app.route("/edit_department/<int:department_id>", methods=["GET", "POST"])
 def edit_department(department_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage departments!")
+        return redirect(url_for("departments"))
+
     department = Department.query.get_or_404(department_id)
     if request.method == "POST":
         department.department_name = request.form.get("department_name")
@@ -110,6 +120,11 @@ def edit_department(department_id):
 
 @app.route("/delete_department/<int:department_id>")
 def delete_department(department_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to manage departments!")
+        return redirect(url_for("departments"))
+
     department = Department.query.get_or_404(department_id)
     db.session.delete(department)
     db.session.commit()
@@ -119,6 +134,11 @@ def delete_department(department_id):
 
 @app.route("/add_colleague", methods=["GET", "POST"])
 def add_colleague():
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to add colleagues!")
+        return redirect(url_for("colleague_search"))
+
     departments = list(Department.query.order_by(
         Department.department_name).all())
     if request.method == "POST":
@@ -137,6 +157,11 @@ def add_colleague():
 
 @app.route("/edit_colleague/<int:colleague_id>", methods=["GET", "POST"])
 def edit_colleague(colleague_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit colleagues!")
+        return redirect(url_for("colleague_search"))
+
     colleague = Colleague.query.get_or_404(colleague_id)
     departments = list(Department.query.order_by(
         Department.department_name).all())
@@ -153,6 +178,11 @@ def edit_colleague(colleague_id):
 
 @app.route("/delete_colleague/<int:colleague_id>")
 def delete_colleague(colleague_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to delete colleagues!")
+        return redirect(url_for("colleague_search"))
+
     colleague = Colleague.query.get_or_404(colleague_id)
     db.session.delete(colleague)
     db.session.commit()
@@ -176,6 +206,11 @@ def get_associate():
 
 @app.route("/add_associate", methods=["GET", "POST"])
 def add_associate():
+    
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to add personal information!")
+        return redirect(url_for("get_associate"))
+
     if request.method == "POST":
         associate = {
             "first_name": request.form.get("first_name"),
@@ -195,6 +230,11 @@ def add_associate():
 
 @app.route("/edit_associate/<associate_id>", methods=["GET", "POST"])
 def edit_associate(associate_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to edit personal information!")
+        return redirect(url_for("get_associate"))
+
     if request.method == "POST":
         submit = {
             "first_name": request.form.get("first_name"),
@@ -215,6 +255,12 @@ def edit_associate(associate_id):
 
 @app.route("/delete_associate/<associate_id>")
 def delete_associate(associate_id):
+
+    if "user" not in session or session["user"] != "admin":
+        flash("You must be admin to delete personal information!")
+        return redirect(url_for("get_associate"))
+
+
     mongo.db.associate.delete_one({"_id": ObjectId(associate_id)})
     flash("Personal Information Successfully Deleted")
     return redirect(url_for("get_associate"))
