@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" 
+    content="Titan colleague portal app, add,edit,delete colleagues from databses and assign departments to colleagues">
     <!--font awesome cdn link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
@@ -19,7 +21,7 @@
         <nav class="transparent">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo"></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars" name="sidenav-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('colleague_search') }}">Colleague Search</a></li>
                     <li><a href="{{ url_for('get_associate') }}">Personal Info Search</a></li>
