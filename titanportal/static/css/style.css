@@ -13,7 +13,8 @@ body {
   }
 
   .flashes h4 {
-    line-height: 2;
+    line-height: 3;
+    padding: 15px;
 }
 
 nav {
@@ -37,8 +38,4 @@ footer {
   max-width: 50%;
   height:auto;
   margin-left:26%;
-}
-
-.flash {
-  padding: 20px;
 }
