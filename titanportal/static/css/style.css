@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 body {
     display: flex;
     min-height: 100vh;
@@ -13,8 +15,7 @@ body {
   }
 
   .flashes h4 {
-    line-height: 3;
-    padding: 15px;
+    line-height: 2;
 }
 
 nav {
