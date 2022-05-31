@@ -52,6 +52,7 @@ This is why in developing this app, we have used POSTGRESQL and SQLALCHEMY to cr
 7. - I the user, can assign a colleague to a specific department
 8. - I the user, can add/edit/delete a colleagues personal information into the database
 9. - I the user, have the ability to log out, and am notified when this is successful.
+10. - I the user, am notified of any actions taken such as edit/delete
 
 <a name="wireframes"></a>
 ## WireFrames
@@ -89,3 +90,36 @@ I wanted to keep the design of this application as simple as possible, mainly fo
   [Go to the top](#contents)
 
 ![Titan app responsive](titanportal/static/images/titan-am-i-responsive.jpg)
+
+- Login page - This satisfies user story number 1 and 2.
+
+![login-page](titanportal/static/images/website-walkthrough/login-page.jpg)
+
+- Resistration page - This satisfies user story number 2.
+
+![register-page](titanportal/static/images/website-walkthrough/register-page.jpg)
+
+- Upon successful login, the user will be directed to the Colleague Search page, where the user is alerted to their username and notified the user that login was successful, which satisfies user story number 4.
+
+![colleague-search](titanportal/static/images/website-walkthrough/colleague-search-page.jpg)
+
+- The user can then add a new colleague, this satisfies user story number 6.
+
+![add-colleague](titanportal/static/images/website-walkthrough/new-colleague-page.jpg)
+
+- The user can also assign this colleague into a particular department, this satisfies user story number 7.
+
+![colleague-relations](titanportal/static/images/website-walkthrough/new-colleague-relations.jpg)
+
+- Colleagues can also be deleted, and as this action cannot be undone, have used modals to confirm the users actions. This satisfies user story number 6 and 10.
+
+![colleague-deleted](titanportal/static/images/website-walkthrough/colleague-deleted.jpg)
+
+- This is where the user can add/edit/delete departments. This satisfies user story number 5.
+
+![departments-page](titanportal/static/images/website-walkthrough/departments-page.jpg)
+
+- Departments can be deleted, and as this action cannot be undone, have used modals to confirm the users actions. This satisfies user story number 5 and 10.
+
+![departments-delete](titanportal/static/images/website-walkthrough/delete-department.jpg)
+
