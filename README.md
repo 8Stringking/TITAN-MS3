@@ -244,7 +244,9 @@ Visual Checks | Has visual checks been carried out in full on deployment version
 Code checked | Has the code been checked for errors? | Yes, Pass
 Console errors | Is there any errors in the console? | No, Pass
 
-
+<a name="code-validation"></a>
+## Code Validation
+  [Go to the top](#contents)
 
 
 
