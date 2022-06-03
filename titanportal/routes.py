@@ -173,7 +173,8 @@ def edit_colleague(colleague_id):
         db.session.commit()
         flash("Colleague Successfully Edited")
         return redirect(url_for("colleague_search"))
-    return render_template("edit_colleague.html", colleague=colleague, departments=departments)
+    return render_template(
+        "edit_colleague.html", colleague=colleague, departments=departments)
 
 
 @app.route("/delete_colleague/<int:colleague_id>")
@@ -190,14 +191,6 @@ def delete_colleague(colleague_id):
     return redirect(url_for("colleague_search"))
 
 
-# @app.route("/colleague_search/<int:colleague_id>", methods=["GET", "POST"])
-# def colleague_search(colleague_id):
-    # colleague = Colleague.query.get_or_404(colleague_id)
-    # if request.method == "POST":
-        # colleague.query.filter_by(colleague.colleague_id, colleague.first_name, colleague.last_name, colleague.department_id)
-    # return render_template("colleagues.html", colleagues=colleagues)
-
-
 @app.route("/get_associate")
 def get_associate():
     associate = list(mongo.db.associate.find())
@@ -206,7 +199,7 @@ def get_associate():
 
 @app.route("/add_associate", methods=["GET", "POST"])
 def add_associate():
-    
+
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to add personal information!")
         return redirect(url_for("get_associate"))
@@ -245,7 +238,8 @@ def edit_associate(associate_id):
             "contact": request.form.get("contact"),
             "date_of_birth": request.form.get("date_of_birth")
         }
-        mongo.db.associate.update_one({"_id": ObjectId(associate_id)},{"$set": submit})
+        mongo.db.associate.update_one(
+            {"_id": ObjectId(associate_id)}, {"$set": submit})
         flash("Personal Information Successfully Updated")
         return redirect(url_for("get_associate"))
 
@@ -259,7 +253,6 @@ def delete_associate(associate_id):
     if "user" not in session or session["user"] != "admin":
         flash("You must be admin to delete personal information!")
         return redirect(url_for("get_associate"))
-
 
     mongo.db.associate.delete_one({"_id": ObjectId(associate_id)})
     flash("Personal Information Successfully Deleted")

@@ -177,3 +177,19 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 <a name="methods-for-creating-the-site"></a>
 # Methods For Creating The Site
   [Go to the top](#contents)
+
+* [HTML5](https://en.wikipedia.org/wiki/HTML) (was used for structuring and presenting content of the website)
+* [CSS](https://en.wikipedia.org/wiki/CSS) (used for the styling of the content)
+* [Javascript](https://en.wikipedia.org/wiki/JavaScript) (used for the game programming)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) (used for programming the application)
+* [Google Fonts](https://fonts.google.com/) (used for all the font styling within the project)
+* [Chrome](https://www.google.com/intl/en_uk/chrome/) (used to debug and test the source code and to test site responsiveness)
+* [GitHub](https://github.com/) (used to create the repository and store the projects code after pushed from Git)
+* [Heroku](https://id.heroku.com/login) (Used for deployment of the application alongisde Github)
+* [Gitpod](https://www.gitpod.io/) (used for the editing of code within the project for the site)
+* [W3C Markup](https://validator.w3.org/) (used for validating the html5 code)
+* [Jigsaw Validator](https://jigsaw.w3.org/css-validator/) (used for validating the CSS code)
+* [JSHint](https://jshint.com/) (this was also used for validating javascript code and double checking results from JSLint)
+* [Am I Responsive](http://ami.responsivedesign.is/#) (used to generate the live site images, and also used to test responsiveness)
+* [Balsamiq](https://balsamiq.com/) (This was used to generate the wireframes)
+* [Postimages](https://postimages.org) (This was used to host the background image and header and footer to improve load times)
