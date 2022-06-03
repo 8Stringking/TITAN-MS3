@@ -34,9 +34,9 @@
         <div class="input-field col s12">
           <select name="department_id" id="department_id" class="validate" required>
             <option value="" disabled selected>Choose Department</option>
+            <label for="department_id">Department</label>
             {% for department in departments %}
             <option value="{{ department.id }}">{{ department.department_name }}</option>
-            <label for="department_id">Department</label>
             {% endfor %}
           </select>
         </div>
