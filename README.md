@@ -102,7 +102,17 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 ## Accessibility
   [Go to the top](#contents)
 
+During the development of this app, accessibility has been a big focus, as I understand how important it is. I have been using the chrome developer tool lighthouse to track how the application is doing in this area and below are some of the results from these tests.
 
+![login-accessibility](titanportal/static/images/accessibility/login-accessibility.jpg)
+
+![colleague-accessibility](titanportal/static/images/accessibility/colleague-accessibility.jpg)
+
+![department-accessibility](titanportal/static/images/accessibility/department-accessibility.jpg)
+
+![add-personal-info-accessibility](titanportal/static/images/accessibility/add-personal-accessibility.jpg)
+
+![edit-personal-info-accessibility](titanportal/static/images/accessibility/edit-personal-accessibility.jpg)
 
 
 <a name="website-walkthrough"></a>
@@ -196,6 +206,7 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 * [Balsamiq](https://balsamiq.com/) (This was used to generate the wireframes)
 * [Postimages](https://postimages.org) (This was used to host the background image and header and footer to improve load times)
 * [PeP8 online](http://pep8online.com/) (Used to check and prove pep8 compliance for models,routes.py files)
+* [Materialize](https://materializecss.com/) (used for responsiveness and for the design of the application)
 
 <a name="Testing"></a>
 # Testing
@@ -204,3 +215,40 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 <a name="development-testing"></a>
 ## Development Testing
   [Go to the top](#contents)
+
+Test            | Outcome                          | Result
+--------------- | -------------------------------- | ------------
+Navigation Bar  | Does the nav bar navigate to each page?| Pass 
+Buttons | Does all buttons function as intended consistantly?| Pass
+User Story 1 | I the user, upon loading the site see an overview of what the application is? | Pass
+User story 2 | I the user, have the ability to register a username and log into the application | Pass
+User Story 3 | I the user, am notified when I have used the incorrect Username/Password | Pass
+User story 4 | I the user, am notified when i have successfully logged into the application | Pass
+User story 5 | I the user, can add/edit/delete a department into the database | Pass
+User story 6 | I the user, can add/edit/delete a colleague into the database | Pass
+User story 7 | I the user, can assign a colleague to a specific department | Pass
+User story 8 | I the user, can add/edit/delete a colleagues personal information into the database | Pass
+User story 9 | I the user, have the ability to log out, and am notified when this is successful | Pass
+User story 10 | I the user, am notified of any actions taken such as edit/delete | Pass
+Responsiveness | Is the application responsive across all devices? | Pass
+Accessibility | Is the application accessible to all users? | Pass (see accessibility section above)
+
+<a name="deployment-testing"></a>
+## Deployment Testing
+  [Go to the top](#contents)
+
+Test            | Outcome                          | Result
+--------------- | -------------------------------- | ------------
+Checked against development version | Has the development testing criteria been applied to the deployed version? Any issues? | Pass, No issues
+Visual Checks | Has visual checks been carried out in full on deployment version? | Yes, Pass
+Code checked | Has the code been checked for errors? | Yes, Pass
+Console errors | Is there any errors in the console? | No, Pass
+
+
+
+
+
+
+
+
+
