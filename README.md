@@ -39,6 +39,8 @@ When I have been running stores myself, especially with high staff numbers. It t
 
 This is why in developing this app, we have used POSTGRESQL and SQLALCHEMY to create a relational database which ties colleagues to a specific department of your choice, and is why weve used MONGODB for the larger content of a colleagues personal information.
 
+The target audience for this application would be any company with a large number of staff, it can also be used on a smaller scale but the inteded target audience is definately large companies.
+
 <a name="user-stories"></a>
 ## User Stories
   [Go to the top](#contents)
@@ -194,3 +196,11 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 * [Balsamiq](https://balsamiq.com/) (This was used to generate the wireframes)
 * [Postimages](https://postimages.org) (This was used to host the background image and header and footer to improve load times)
 * [PeP8 online](http://pep8online.com/) (Used to check and prove pep8 compliance for models,routes.py files)
+
+<a name="Testing"></a>
+# Testing
+  [Go to the top](#contents)
+
+<a name="development-testing"></a>
+## Development Testing
+  [Go to the top](#contents)
