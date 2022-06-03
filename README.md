@@ -188,7 +188,7 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 * [Heroku](https://id.heroku.com/login) (Used for deployment of the application alongisde Github)
 * [Gitpod](https://www.gitpod.io/) (used for the editing of code within the project for the site)
 * [W3C Markup](https://validator.w3.org/) (used for validating the html5 code)
-* [Jigsaw Validator](https://jigsaw.w3.org/css-validator/) (used for validating the CSS code)
+* [CSS Validator](https://www.cssportal.com/css-validator/) (used for validating the CSS code)
 * [JSHint](https://jshint.com/) (this was also used for validating javascript code and double checking results from JSLint)
 * [Am I Responsive](http://ami.responsivedesign.is/#) (used to generate the live site images, and also used to test responsiveness)
 * [Balsamiq](https://balsamiq.com/) (This was used to generate the wireframes)

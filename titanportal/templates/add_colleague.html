@@ -36,9 +36,9 @@
             <option value="" disabled selected>Choose Department</option>
             {% for department in departments %}
             <option value="{{ department.id }}">{{ department.department_name }}</option>
+            <label for="department_id">Department</label>
             {% endfor %}
           </select>
-          <label for="department_id">Department</label>
         </div>
       </div>
          <!--submit button-->
