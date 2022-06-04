@@ -5,27 +5,29 @@ from titanportal import app, db, mongo
 from titanportal.models import Department, Colleague
 
 
+# this route is the default page for the app that displays the index page
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
+# this route is for logging into the app
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         # check if username exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Welcome, {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "colleague_search", username=session["user"]))
+                existing_user["password"], request.form.get("password")
+            ):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("colleague_search", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -39,6 +41,7 @@ def login():
     return render_template("index.html")
 
 
+# the route for logging out
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -47,12 +50,14 @@ def logout():
     return redirect(url_for("login"))
 
 
+# route for registering
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         # checks if username already exists in db
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+            {"username": request.form.get("username").lower()}
+        )
 
         if existing_user:
             flash("Username already exists")
@@ -60,7 +65,7 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
         }
         mongo.db.users.insert_one(register)
 
@@ -72,19 +77,23 @@ def register():
     return render_template("register.html")
 
 
+# this renders the colleague search page and retrieves the
+# colleague info from the database
 @app.route("/colleague_search")
 def colleague_search():
     colleagues = list(Colleague.query.order_by(Colleague.id).all())
     return render_template("colleagues.html", colleagues=colleagues)
 
 
+# this renders the department page and retrieves created departments
+# from the database
 @app.route("/departments")
 def departments():
-    departments = list(Department.query.order_by(
-        Department.department_name).all())
+    departments = list(Department.query.order_by(Department.department_name).all())
     return render_template("departments.html", departments=departments)
 
 
+# this adds a department to the database but ensuring only admin user can do this
 @app.route("/add_department", methods=["GET", "POST"])
 def add_department():
 
@@ -93,8 +102,7 @@ def add_department():
         return redirect(url_for("departments"))
 
     if request.method == "POST":
-        department = Department(
-            department_name=request.form.get("department_name"))
+        department = Department(department_name=request.form.get("department_name"))
         db.session.add(department)
         db.session.commit()
         flash("New Department Added")
@@ -102,6 +110,7 @@ def add_department():
     return render_template("add_department.html")
 
 
+# this edits a department in the database but ensuring only admin user can do this
 @app.route("/edit_department/<int:department_id>", methods=["GET", "POST"])
 def edit_department(department_id):
 
@@ -118,6 +127,7 @@ def edit_department(department_id):
     return render_template("edit_department.html", department=department)
 
 
+# this deletes a department from the database and only lets admin user do this
 @app.route("/delete_department/<int:department_id>")
 def delete_department(department_id):
 
@@ -132,6 +142,7 @@ def delete_department(department_id):
     return redirect(url_for("departments"))
 
 
+# this adds a colleague to the database but ensuring only admin user can do this
 @app.route("/add_colleague", methods=["GET", "POST"])
 def add_colleague():
 
@@ -139,14 +150,13 @@ def add_colleague():
         flash("You must be admin to add colleagues!")
         return redirect(url_for("colleague_search"))
 
-    departments = list(Department.query.order_by(
-        Department.department_name).all())
+    departments = list(Department.query.order_by(Department.department_name).all())
     if request.method == "POST":
         colleague = Colleague(
             first_name=request.form.get("first_name"),
             last_name=request.form.get("last_name"),
             role=request.form.get("role"),
-            department_id=request.form.get("department_id")
+            department_id=request.form.get("department_id"),
         )
         db.session.add(colleague)
         db.session.commit()
@@ -155,6 +165,7 @@ def add_colleague():
     return render_template("add_colleague.html", departments=departments)
 
 
+# this edits a colleague to the database but ensuring only admin user can do this
 @app.route("/edit_colleague/<int:colleague_id>", methods=["GET", "POST"])
 def edit_colleague(colleague_id):
 
@@ -163,20 +174,21 @@ def edit_colleague(colleague_id):
         return redirect(url_for("colleague_search"))
 
     colleague = Colleague.query.get_or_404(colleague_id)
-    departments = list(Department.query.order_by(
-        Department.department_name).all())
+    departments = list(Department.query.order_by(Department.department_name).all())
     if request.method == "POST":
-        colleague.first_name = request.form.get("first_name"),
-        colleague.last_name = request.form.get("last_name"),
-        colleague.role = request.form.get("role"),
+        colleague.first_name = (request.form.get("first_name"),)
+        colleague.last_name = (request.form.get("last_name"),)
+        colleague.role = (request.form.get("role"),)
         colleague.department_id = request.form.get("department_id")
         db.session.commit()
         flash("Colleague Successfully Edited")
         return redirect(url_for("colleague_search"))
     return render_template(
-        "edit_colleague.html", colleague=colleague, departments=departments)
+        "edit_colleague.html", colleague=colleague, departments=departments
+    )
 
 
+# this deletes a colleague from the database and only lets admin user do this
 @app.route("/delete_colleague/<int:colleague_id>")
 def delete_colleague(colleague_id):
 
@@ -191,12 +203,14 @@ def delete_colleague(colleague_id):
     return redirect(url_for("colleague_search"))
 
 
+# this retrieves all data from mongo db and presents them in list form
 @app.route("/get_associate")
 def get_associate():
     associate = list(mongo.db.associate.find())
     return render_template("personal_info.html", associate=associate)
 
 
+# this adds personal information to the database but ensuring only admin user can do this
 @app.route("/add_associate", methods=["GET", "POST"])
 def add_associate():
 
@@ -212,7 +226,7 @@ def add_associate():
             "department": request.form.get("department"),
             "role": request.form.get("role"),
             "contact": request.form.get("contact"),
-            "date_of_birth": request.form.get("date_of_birth")
+            "date_of_birth": request.form.get("date_of_birth"),
         }
         mongo.db.associate.insert_one(associate)
         flash("Personal Information Successfully Added")
@@ -221,6 +235,7 @@ def add_associate():
     return render_template("add_personal_info.html")
 
 
+# this edits personal information in the database but ensuring only admin user can do this
 @app.route("/edit_associate/<associate_id>", methods=["GET", "POST"])
 def edit_associate(associate_id):
 
@@ -236,10 +251,9 @@ def edit_associate(associate_id):
             "department": request.form.get("department"),
             "role": request.form.get("role"),
             "contact": request.form.get("contact"),
-            "date_of_birth": request.form.get("date_of_birth")
+            "date_of_birth": request.form.get("date_of_birth"),
         }
-        mongo.db.associate.update_one(
-            {"_id": ObjectId(associate_id)}, {"$set": submit})
+        mongo.db.associate.update_one({"_id": ObjectId(associate_id)}, {"$set": submit})
         flash("Personal Information Successfully Updated")
         return redirect(url_for("get_associate"))
 
@@ -247,6 +261,7 @@ def edit_associate(associate_id):
     return render_template("edit_personal_info.html", associate=associate)
 
 
+# this deletes personal information in the database but ensuring only admin user can do this
 @app.route("/delete_associate/<associate_id>")
 def delete_associate(associate_id):
 
@@ -259,6 +274,7 @@ def delete_associate(associate_id):
     return redirect(url_for("get_associate"))
 
 
+# this route is for the search functionality for the mongodb and presents them as a list
 @app.route("/search_info", methods=["GET", "POST"])
 def search_info():
     query = request.form.get("query")
