@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--page title-->
 <h3 class="blue-text text-darken-4 center-align">Add Colleague</h3>
 
+<!--add colleague form-->
 <div class="row card-panel transparent">
     <form class="col s12" method="POST" action="{{ url_for('add_colleague') }}">
       <!--First name-->
@@ -35,6 +37,7 @@
           <select name="department_id" id="department_id" class="validate" required>
             <label for="department_id">Department</label>
             <option value="" disabled selected>Choose Department</option>
+            <!--this is so the created departments display as an option-->
             {% for department in departments %}
             <option value="{{ department.id }}">{{ department.department_name }}</option>
             {% endfor %}

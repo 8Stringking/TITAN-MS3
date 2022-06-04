@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--page title-->
 <h3 class="blue-text text-darken-4 center-align">Edit Colleague</h3>
 
+<!--form for edit colleague-->
 <div class="row card-panel transparent">
     <form class="col s12" method="POST" action="{{ url_for('edit_colleague', colleague_id=colleague.id) }}">
       <!--First name-->
@@ -34,6 +36,7 @@
         <div class="input-field col s12">
           <select name="department_id" id="department_id" class="validate" required>
             <option value="" disabled>Choose Department</option>
+            <!--this is so the field for department autofills with colleague assigned department-->
             {% for department in departments %}
               {% if department == colleague.department %}
               <option value="{{ department.id }}" selected>{{ department.department_name }}</option>
@@ -55,5 +58,4 @@
           </div>
     </form>
   </div>
-
 {% endblock %}

@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--page title-->
 <h3 class="blue-text text-darken-4 center-align">Register</h3>
 
+<!--registration card-->
 <div class="row">
     <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
         <div class="card-panel transparent">
@@ -39,5 +41,4 @@
         </div>
     </form>
 </div>
-
 {% endblock %}

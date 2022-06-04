@@ -28,17 +28,20 @@
     </section>
 
     <main>
+        <!--for the background image of the whole application-->
         <div>
             <img src="{{ url_for('static', filename='images/logo_transparent_background.jpg') }}" alt="titan-portal-logo" class="titan-logo">
         </div>
         <div class="row">
             <div class="col s8 m4 offset-m4 offset-s2">
                 <div class="card-panel transparent center-align text-shadow">
-                    <p>Welcome to the Titan Colleague Portal Management System. Where you can assign colleagues departments, 
-                     manage those departments and add/manage colleagues personal data</p>
+                    <!--Introduction to application-->
+                    <p>Welcome to the Titan Colleague Portal Management System. Where you can assign colleagues to departments, 
+                     manage those departments and add/manage colleagues personal data. Helping you organise and structure your business</p>
                 </div>
             </div>
         </div>
+        <!--card for login to the application-->
         <div class="row">
             <form class="col s8 m4 offset-m4 offset-s2" method="POST" action="{{ url_for('login') }}">
                 <div class="card-panel transparent">
@@ -68,6 +71,7 @@
                 </div>
             </form>
         </div>
+        <!--for the link to the registration page for new users-->
         <div class="row">
             <div class="col s12">
                 <p class="center-align">
