@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block content %}
 
 <!--page title-->
@@ -6,39 +6,53 @@
 
 <!--registration card-->
 <div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel transparent">
-            <!--username field-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix blue-text text-darken-4"></i>
-                    <input id="username" name="username" type="text" class="validate">
-                    <label for="username">Username</label>
-                </div>
+   <form
+      class="col s12 m8 offset-m2"
+      method="POST"
+      action="{{ url_for('register') }}">
+      <div class="card-panel transparent">
+         <!--username field-->
+         <div class="row">
+            <div class="input-field col s12">
+               <i class="fas fa-user-plus prefix blue-text text-darken-4"></i>
+               <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  class="validate"/>
+               <label for="username">Username</label>
             </div>
-            <!--password field-->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-lock prefix blue-text text-darken-4"></i>
-                    <input id="password" name="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
+         </div>
+         <!--password field-->
+         <div class="row">
+            <div class="input-field col s12">
+               <i class="fas fa-user-lock prefix blue-text text-darken-4"></i>
+               <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  class="validate"/>
+               <label for="password">Password</label>
             </div>
-            <!--register button-->
-            <div class="row">
-                <button type="submit" class="col s12 btn-large blue darken-4 text-shadow">
-                    Register <i class="fas fa-sign-in-alt"></i>
-                </button>
+         </div>
+         <!--register button-->
+         <div class="row">
+            <button
+               type="submit"
+               class="col s12 btn-large blue darken-4 text-shadow">
+               Register <i class="fas fa-sign-in-alt"></i>
+            </button>
+         </div>
+         <div class="row">
+            <div class="col s12">
+               <p class="center-align">
+                  Already Registered?
+                  <a href="{{ url_for('login') }}"
+                     class="blue-text text-darken-4">Login</a>
+               </p>
             </div>
-            <div class="row">
-                <div class="col s12">
-                    <p class="center-align">
-                        Already Registered?
-                        <a href="{{ url_for('login') }}" class="blue-text text-darken-4">Login</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </form>
+         </div>
+      </div>
+   </form>
 </div>
 {% endblock %}

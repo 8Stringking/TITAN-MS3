@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block content %}
 
 <!--page title-->
@@ -7,33 +7,36 @@
 <!--this is so that the colleagues added appear in the collapsible drop down menu-->
 {% if colleagues|length > 0 %}
 <ul class="collapsible">
-    {% for colleague in colleagues %}
-    <li>
+   {% for colleague in colleagues %}
+   <li>
       <div class="collapsible-header white-text blue darken-4">
-          <i class="fas fa-caret-down"></i>
-          <strong>{{ colleague.first_name }}</strong> {{ colleague. last_name }}
+         <i class="fas fa-caret-down"></i>
+         <strong>{{ colleague.first_name }}</strong> {{ colleague. last_name }}
       </div>
       <div class="collapsible-body">
-          <strong>{{ colleague.department }}</strong>
-          <p> {{ colleague.role }}</p>
-          <div>
-              <a href="{{ url_for('edit_colleague', colleague_id=colleague.id) }}" class="btn green accent-4">Edit</a>
-              <a href="#modal-{{ colleague.id }}" class="btn red modal-trigger">Delete</a>
-              <!-- Modal for delete confirmation -->
-              <div id="modal-{{ colleague.id }}" class="modal">
-                  <div class="modal-content">
-                      <h4>Are you sure you want to delete this Colleague?</h4>
-                      <p>This action cannot be undone</p>
-                  </div>
-                  <div class="modal-footer">
-                      <a href="{{ url_for('delete_colleague', colleague_id=colleague.id) }}" class="btn red">Delete</a>
-                      <a href="{{ url_for('colleague_search') }}" class="modal-close btn green accent -4">Cancel</a>
-                  </div>
-              </div>
-          </div>
+         <strong>{{ colleague.department }}</strong>
+         <p>{{ colleague.role }}</p>
+         <div>
+            <a href="{{ url_for('edit_colleague', colleague_id=colleague.id) }}"
+               class="btn green accent-4">Edit</a>
+            <a href="#modal-{{ colleague.id }}" class="btn red modal-trigger">Delete</a>
+            <!-- Modal for delete confirmation -->
+            <div id="modal-{{ colleague.id }}" class="modal">
+               <div class="modal-content">
+                  <h4>Are you sure you want to delete this Colleague?</h4>
+                  <p>This action cannot be undone</p>
+               </div>
+               <div class="modal-footer">
+                  <a href="{{ url_for('delete_colleague', colleague_id=colleague.id) }}"
+                     class="btn red">Delete</a>
+                  <a href="{{ url_for('colleague_search') }}"
+                     class="modal-close btn green accent -4">Cancel</a>
+               </div>
+            </div>
+         </div>
       </div>
-    </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+   </li>
+   {% endfor %}
+</ul>
+{% endif %} 
 {% endblock %}
