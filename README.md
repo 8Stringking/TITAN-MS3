@@ -17,6 +17,7 @@ Live site can be viewed here: https://titan-milestone-3.herokuapp.com/
     * [**User Stories**](#user-stories)
     * [**Wireframes**](#wireframes)
     * [**Web Design**](#web-design)
+    * [**Data-Schema**](#data-schema)
     * [**Accessibility**](#accessibility)
 * [**Website Walkthrough**](#website-walkthrough)
 * [**Methods For Creating The Site**](#methods-for-creating-the-site)
@@ -40,6 +41,10 @@ When I have been running stores myself, especially with high staff numbers. It t
 This is why in developing this app, we have used POSTGRESQL and SQLALCHEMY to create a relational database which ties colleagues to a specific department of your choice, and is why weve used MONGODB for the larger content of a colleagues personal information.
 
 The target audience for this application would be any company with a large number of staff, it can also be used on a smaller scale but the inteded target audience is definately large companies.
+
+In the creation of this app, security has been a focus of ours. Weve used Werkzeug to hash passwords and included defensive programming for users aswel. From my experience from working in high staff number stores, I know that security is important. This is why we have used defensive programming to only allow the Admin user to be able to delete/add/edit any information on the app. This is to keep control of the app in Senior managements hands. As the importancce of this to be kept accurate for a business is imperative.
+
+I think it definately meets the users demands and expectations of the site. That being a completely responsive modern looking application that can restrict access to help keep it secure and that delivers on being able to structure and better organise your colleagues details.
 
 <a name="user-stories"></a>
 ## User Stories
@@ -96,7 +101,19 @@ This application has been designed with the following main principles:
 - Ensuring no contrast issues between background and foreground content 
 - To provide a service for managers and businesses that will save time and help structure/organise their business.
 
-I wanted to keep the design of this application as simple as possible, mainly for ease of use by the user but to also keep it as strictly a functional application as possible. Which is why for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not. With a modern aesthetic it could be used in any business. This played a big part in deciding the look, which is why ive used light technological themed images, which i believe do look modern while not tying the application down to a specific sector such as supermarkets etc. Also for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not.
+I wanted to keep the design of this application as simple as possible, mainly for ease of use by the user but to also keep it as strictly a functional application as possible. Which is why for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not. With a modern aesthetic it could be used in any business. This played a big part in deciding the look, which is why ive used light technological themed images, which i believe do look modern while not tying the application down to a specific sector such as supermarkets etc. This is also why ive used the framework MaterializeCSS to help me achieve this. Also for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not.
+
+<a name="data-schema"></a>
+## Data-Schema
+  [Go to the top](#contents)
+
+This is the data-schema devised for this application on the relational database side.
+![Titan-schema](titanportal/static/images/titan%20schema.jpg)
+
+What this diagram shows is that im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
+
+What this allows the application to do is assign a colleague to a department, aswell as their role, which will also display their first and last name. Which allows the user to organise and structure their business and forfill the needs of real world issues that businesses today have . A feature we have also put in is that weve used a cascade delete so if a department is deleted the colleagues within the department will also be deleted.
+
 
 <a name="accessibility"></a>
 ## Accessibility
@@ -243,14 +260,51 @@ Checked against development version | Has the development testing criteria been 
 Visual Checks | Has visual checks been carried out in full on deployment version? | Yes, Pass
 Code checked | Has the code been checked for errors? | Yes, Pass
 Console errors | Is there any errors in the console? | No, Pass
+Stability | Does using the forward and backward keys break the site? | No, Pass
+
 
 <a name="code-validation"></a>
 ## Code Validation
   [Go to the top](#contents)
 
+This is the validation for the CSS, as shown, no errors were found.
+![css-validation](titanportal/static/images/validation/css-validation.jpg)
+
+This is the validation for the models, ensuring that it is Pep8 compliant.
+![model-validation](titanportal/static/images/validation/models-pep8-check-results.jpg)
+
+This is the validation for the routes.py file, ensuring that it is Pep8 compliant.
+![routes-validation](titanportal/static/images/validation/routes-pep8-check-results.jpg)
+
+This is the validation for the JavaScript using JSHINT. 
+![js-validation](titanportal/static/images/validation/js-validation.JPG)
 
 
 
+<a name="bugs"></a>
+# Bugs
+  [Go to the top](#contents)
+
+One bug i had during the creation of this project was writing a search bar for the postgresql database using ORM sqlalchemy language which i unfortunately had to take out of this project. I was really hoping that i could provide this as i believe it would complete the app, however i was unable to get this consistantly working so its something il be looking to add as soon as ive figured it out.
+
+The is no console errors, nor any present errors while checking in [Chrome](https://www.google.com/intl/en_uk/chrome/) Dev Toolswhile the app is running or performing tasks.
 
 
+<a name="deployment"></a>
+# Deployment
+  [Go to the top](#contents)
+
+ This project was deployed to heroku and the steps to do this are below:
+
+* sign up and log into heroku
+* In the top right hand corner of the heroku website click new, then create new app
+* Name app and select region
+* click create app
+* Install postgres under the resources tab
+* Insert relevant config vars into heroku, such as IP,PORT,SECRET_KEY, DATABAS_URL
+* You can click connect to github but this project used the CLI method.
+* Log into heroku via CLI
+* Create a git remote for heroku
+* Push all changes to the staging area
+* Push to heroku for your app to run and function.
 
