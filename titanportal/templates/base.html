@@ -34,7 +34,7 @@
                   href="#"
                   data-target="mobile-demo"
                   class="sidenav-trigger"
-                  name="bars">
+                  id="bars">
                   <i class="fas fa-bars"></i></a>
                <ul class="right hide-on-med-and-down">
                   <li>
@@ -59,7 +59,7 @@
             </div>
          </nav>
          <!--mobile nav bar-->
-         <ul class="transparent sidenav" id="mobile-demo" name="sidenav-bars">
+         <ul class="transparent sidenav" id="mobile-demo">
             <li>
                <a href="{{ url_for('colleague_search') }}">Colleague Search</a>
             </li>
@@ -77,7 +77,7 @@
          </ul>
       </header>
 
-      <section>
+      <div>
          <!-- flash messages -->
          {% with messages = get_flashed_messages() %}
             {% if messages %} 
@@ -88,7 +88,7 @@
                {% endfor %} 
             {% endif %} 
          {% endwith %}
-      </section>
+      </div>
 
       <!--this is where the content from other pages would be displayed-->
       <main class="container">
