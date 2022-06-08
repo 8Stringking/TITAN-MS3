@@ -284,7 +284,40 @@ This is the validation for the routes.py file, ensuring that it is Pep8 complian
 This is the validation for the JavaScript using JSHINT. 
 ![js-validation](titanportal/static/images/validation/js-validation.JPG)
 
+- Below is the HTML validation:
 
+This is the html validation for Add colleague page.
+![add-colleague-validation](titanportal/static/images/validation/html-validation/add-colleague-page-validation.jpg)
+
+This is the html validation for Add Department page.
+![add-department-validation](titanportal/static/images/validation/html-validation/add-department-page-validation.jpg)
+
+This is the html validation for Colleague Search page.
+![colleague-search-validation](titanportal/static/images/validation/html-validation/colleague-search-page-validation.jpg)
+
+This is the html validation for Departments page.
+![departments-validation](titanportal/static/images/validation/html-validation/departments-page-validation.jpg)
+
+This is the html validation for Edit Colleague page.
+![edit-colleague-validation](titanportal/static/images/validation/html-validation/edit-colleague-page-validation.jpg)
+
+This is the html validation for Edit Department page.
+![edit-department-validation](titanportal/static/images/validation/html-validation/edit-department-page-validation.jpg)
+
+This is the html validation for Edit Personal Info page.
+![edit-personal-info-validation](titanportal/static/images/validation/html-validation/edit-personal-info-page-validation.jpg)
+
+This is the html validation for Login page.
+![login-validation](titanportal/static/images/validation/html-validation/login-page-validation.jpg)
+
+This is the html validation for New Personal Info page.
+![new-personal-info-validation](titanportal/static/images/validation/html-validation/new-personal-info-page-validation.jpg)
+
+This is the html validation for Personal Info Search page.
+![personal-info-search-validation](titanportal/static/images/validation/html-validation/personal-info-search-validation.jpg)
+
+This is the html validation for Register page.
+![register-validation](titanportal/static/images/validation/html-validation/register-page-validation.jpg)
 
 <a name="bugs"></a>
 # Bugs
