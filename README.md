@@ -101,7 +101,9 @@ This application has been designed with the following main principles:
 - Ensuring no contrast issues between background and foreground content 
 - To provide a service for managers and businesses that will save time and help structure/organise their business.
 
-I wanted to keep the design of this application as simple as possible, mainly for ease of use by the user but to also keep it as strictly a functional application as possible. Which is why for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not. With a modern aesthetic it could be used in any business. This played a big part in deciding the look, which is why ive used light technological themed images, which i believe do look modern while not tying the application down to a specific sector such as supermarkets etc. This is also why ive used the framework MaterializeCSS to help me achieve this. Also for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not.
+I wanted to keep the design of this application as simple as possible, mainly for ease of use by the user but to also keep it as strictly a functional application as possible. Which is why for every action (add/edit/delete) taken on this application I have used flash messages to feedback to the user if the action they are performing has been successfull or not. With a modern aesthetic it could be used in any business. This played a big part in deciding the look, which is why ive used light technological themed images, which i believe do look modern while not tying the application down to a specific sector such as supermarkets etc. This is also why ive used the framework MaterializeCSS to help me achieve this. 
+
+One thing i havent done is hide Nav Bar Elements. Usually these consist of register, login/logout. This is purposeful, mainly for the reason of this allows the admin user to register users while being logged in, which lets management control the flow and amount of new users that can use the application. Also in a high staff environment like a supermarket, its very common for managers to share computers. This is the reason i felt it wasnt necessary to hide Nav Bar elements.
 
 <a name="data-schema"></a>
 ## Data-Schema
@@ -110,9 +112,11 @@ I wanted to keep the design of this application as simple as possible, mainly fo
 This is the data-schema devised for this application on the relational database side.
 ![Titan-schema](titanportal/static/images/titan%20schema.jpg)
 
-What this diagram shows is that im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
+What this diagram shows is that in the relational database im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
 
 What this allows the application to do is assign a colleague to a department, aswell as their role, which will also display their first and last name. Which allows the user to organise and structure their business and forfill the needs of real world issues that businesses today have . A feature we have also put in is that weve used a cascade delete so if a department is deleted the colleagues within the department will also be deleted.
+
+In the Mongo Database I have the First name, Last name, colleague number, Department, Role Contact, and Date of birth, along with the users passwords that are being hashed by Werkzeug. This is why i have used mongoDB as this data set is far larger than the colleagues or departments which plays to the strengths of MONGODB.
 
 
 <a name="accessibility"></a>
@@ -224,6 +228,7 @@ During the development of this app, accessibility has been a big focus, as I und
 * [Postimages](https://postimages.org) (This was used to host the background image and header and footer to improve load times)
 * [PeP8 online](http://pep8online.com/) (Used to check and prove pep8 compliance for models,routes.py files)
 * [Materialize](https://materializecss.com/) (used for responsiveness and for the design of the application)
+* [Werkzeug](https://werkzeug.palletsprojects.com/en/2.1.x/#) (This was used to hash the users passwords for security reasons)
 
 <a name="Testing"></a>
 # Testing
