@@ -10,6 +10,11 @@ body {
     height: auto;
   }
 
+  /*styling for the background image of the app*/
+  .container {
+    background-size: cover;
+  }
+
 /* sticky footer css */
   main {
     flex: 1 0 auto;
