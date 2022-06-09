@@ -266,6 +266,7 @@ Visual Checks | Has visual checks been carried out in full on deployment version
 Code checked | Has the code been checked for errors? | Yes, Pass
 Console errors | Is there any errors in the console? | No, Pass
 Stability | Does using the forward and backward keys break the site? | No, Pass
+Stability | Does the site work as intended? | Yes, Pass
 
 
 <a name="code-validation"></a>
