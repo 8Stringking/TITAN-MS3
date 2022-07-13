@@ -27,14 +27,14 @@ body {
 /*for the nav bar at the top of the page*/
 nav {
   background-image: url("https://i.postimg.cc/MHPfsCVZ/new-header-1-resize.jpg");
-  background-image: cover;
+  background-size: cover;
   max-width: 100%;
 }
 
 /*for the footer at the bottom of the page*/
 footer {
   background-image: url("https://i.postimg.cc/MHPfsCVZ/new-header-1-resize.jpg");
-  background-image: cover;
+  background-size: cover;
   max-width: 100%;
 }
 
