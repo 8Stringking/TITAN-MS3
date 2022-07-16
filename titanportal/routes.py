@@ -79,14 +79,6 @@ def register():
     return render_template("register.html")
 
 
-# this renders the colleague search page and retrieves the
-# colleague info from the database
-@app.route("/colleague_search")
-def colleague_search():
-    colleagues = list(Colleague.query.order_by(Colleague.id).all())
-    return render_template("colleagues.html", colleagues=colleagues)
-
-
 def login_required(f):
     # ensures page is only viewable to logged in users
     @wraps(f)
@@ -96,6 +88,14 @@ def login_required(f):
             return redirect(url_for('home'))
         return f(*args, **kwargs)
     return decorated_function
+
+
+# this renders the colleague search page and retrieves the
+# colleague info from the database
+@app.route("/colleague_search")
+def colleague_search():
+    colleagues = list(Colleague.query.order_by(Colleague.id).all())
+    return render_template("colleagues.html", colleagues=colleagues)
 
 
 # this renders the department page and retrieves created departments
