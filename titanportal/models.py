@@ -16,8 +16,8 @@ class Department(db.Model):
 class Colleague(db.Model):
     # schema for the colleague model
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(15), unique=True, nullable=False)
-    last_name = db.Column(db.String(15), unique=True, nullable=False)
+    first_name = db.Column(db.String(15), nullable=False)
+    last_name = db.Column(db.String(15), nullable=False)
     role = db.Column(db.String(15), nullable=False)
     department_id = db.Column(db.Integer, db.ForeignKey(
             "department.id", ondelete="CASCADE"), nullable=False)
