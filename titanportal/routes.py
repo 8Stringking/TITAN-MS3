@@ -327,4 +327,4 @@ def internal_server_error(e):
     # handles a 500 Internal Server Error
     # and displays an apology message to the user
     # https://flask.palletsprojects.com/ helped me achieve this
-    return render_template("error.html", error_status=e, message=message), 500
+    return render_template("error.html", 500 error_status=e, message=message)
