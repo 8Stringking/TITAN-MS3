@@ -4,7 +4,7 @@ from titanportal import db
 class Department(db.Model):
     # schema for the department model
     id = db.Column(db.Integer, primary_key=True)
-    department_name = db.Column(db.String(20), unique=True, nullable=False)
+    department_name = db.Column(db.String(20), nullable=False)
     colleagues = db.relationship(
         "Colleague", backref="department", cascade="all, delete", lazy=True)
 
