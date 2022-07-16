@@ -324,8 +324,8 @@ def search_info():
 
 
 @app.errorhandler(500)
-def internal_server_error(HTTPException):
+def handle_exception(e):
     # handles a 500 Internal Server Error
     # and displays an apology message to the user
     # https://flask.palletsprojects.com/ helped me achieve this
-    return render_template("error.html", 500)
+    return render_template("error.html", e=e), 500
