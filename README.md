@@ -231,6 +231,7 @@ During the development of this app, accessibility has been a big focus, as I und
 * [PeP8 online](http://pep8online.com/) (Used to check and prove pep8 compliance for models,routes.py files)
 * [Materialize](https://materializecss.com/) (used for responsiveness and for the design of the application)
 * [Werkzeug](https://werkzeug.palletsprojects.com/en/2.1.x/#) (This was used to hash the users passwords for security reasons)
+* [Miro](https://miro.com) (This was used to create the entity relationship diagram)
 
 <a name="Testing"></a>
 # Testing
