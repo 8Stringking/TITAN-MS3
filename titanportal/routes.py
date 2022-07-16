@@ -81,6 +81,7 @@ def register():
 
 def login_required(f):
     # ensures page is only viewable to logged in users
+    # found at https://flask.palletsprojects.com/
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
@@ -93,6 +94,7 @@ def login_required(f):
 # this renders the colleague search page and retrieves the
 # colleague info from the database
 @app.route("/colleague_search")
+@login_required
 def colleague_search():
     colleagues = list(Colleague.query.order_by(Colleague.id).all())
     return render_template("colleagues.html", colleagues=colleagues)
