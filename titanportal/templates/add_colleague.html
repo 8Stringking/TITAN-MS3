@@ -55,12 +55,12 @@
       <!--department_id-->
       <div class="row">
          <div class="input-field col s12">
-            <label for="choose-department" aria-label="choose-department"></label>
             <select
                name="department_id"
                id="department_id"
                class="validate"
                required>
+               <label for="choose-department" aria-label="choose-department"></label>
                <option value="" disabled selected>Choose Department</option>
                <!--this is so the created departments display as an option-->
                {% for department in departments %}
