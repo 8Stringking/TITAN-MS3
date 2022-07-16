@@ -2,6 +2,7 @@ from flask import render_template, flash, request, session, redirect, url_for
 from functools import wraps
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.exceptions import HTTPException
 from titanportal import app, db, mongo
 from titanportal.models import Department, Colleague
 
@@ -323,8 +324,8 @@ def search_info():
 
 
 @app.errorhandler(500)
-def internal_server_error(e):
+def internal_server_error(HTTPException):
     # handles a 500 Internal Server Error
     # and displays an apology message to the user
     # https://flask.palletsprojects.com/ helped me achieve this
-    return render_template("error.html", 500, error_status=e, message=message)
+    return render_template("error.html", 500)
