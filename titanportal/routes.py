@@ -1,4 +1,5 @@
 from flask import render_template, flash, request, session, redirect, url_for
+from functools import wraps
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from titanportal import app, db, mongo
