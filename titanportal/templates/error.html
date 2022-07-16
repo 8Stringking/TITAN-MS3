@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+   <div class="col s8 m4 offset-m4 offset-s2">
+      <!--Message to the user upon error occuring in application,
+              card from materialize.css-->
+      <div class="card-panel transparent center-align text-shadow">
+         <p>
+            Sorry! There seems to have been a problem, please click below to return to Titan Colleague Portal
+         </p>
+      </div>
+   </div>
+</div>
+ <div class="row">
+    <div class="col s12">
+       <p class="center-align">
+          Return to application
+          <a href="{{ url_for('colleague_search') }}"
+             class="blue-text text-darken-4">Titan Colleague Portal</a>
+       </p>
+    </div>
+ </div>
+
+{% endblock %}
