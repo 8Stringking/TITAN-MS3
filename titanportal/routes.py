@@ -85,13 +85,14 @@ def colleague_search():
     colleagues = list(Colleague.query.order_by(Colleague.id).all())
     return render_template("colleagues.html", colleagues=colleagues)
 
+
 def login_required(f):
     # ensures page is only viewable to logged in users
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
             flash("You need to be logged in to view this page")
-            return redirect(url_for('login')
+            return redirect(url_for('home'))
         return f(*args, **kwargs)
     return decorated_function
 
