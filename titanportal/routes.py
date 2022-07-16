@@ -81,7 +81,7 @@ def register():
 
 def login_required(f):
     # ensures page is only viewable to logged in users
-    # found at https://flask.palletsprojects.com/
+    # https://flask.palletsprojects.com/ helped me achieve this
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "user" not in session:
@@ -320,3 +320,11 @@ def search_info():
     query = request.form.get("query")
     associate = list(mongo.db.associate.find({"$text": {"$search": query}}))
     return render_template("personal_info.html", associate=associate)
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    # handles a 500 Internal Server Error
+    # and displays an apology message to the user
+    # https://flask.palletsprojects.com/ helped me achieve this
+    return render_template("error.html", error_status=e, message=message), 500
