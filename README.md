@@ -110,9 +110,11 @@ One thing i havent done is hide Nav Bar Elements. Usually these consist of regis
   [Go to the top](#contents)
 
 This is the data-schema devised for this application on the relational database side.
-![Titan-schema](titanportal/static/images/titan-schema.jpg)
+![Titan-schema](titanportal/static/images/entity-relationship-diagram.jpg)
 
-What this diagram shows is that in the relational database im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
+This entity relationship diagram shows a one to many relationship between the colleague id, and the department id, meaning many colleagues can go into one department, and that not many departments can go into a colleague.
+
+In the relational database im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
 
 What this allows the application to do is assign a colleague to a department, aswell as their role, which will also display their first and last name. Which allows the user to organise and structure their business and forfill the needs of real world issues that businesses today have . A feature we have also put in is that weve used a cascade delete so if a department is deleted the colleagues within the department will also be deleted.
 

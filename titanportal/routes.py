@@ -326,4 +326,5 @@ def search_info():
 @app.errorhandler(500)
 def internal_server_error(e):
     # note that we set the 500 status explicitly
+    # https://flask.palletsprojects.com/ helped me achieve this
     return render_template('error.html'), 500
