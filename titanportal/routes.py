@@ -85,10 +85,21 @@ def colleague_search():
     colleagues = list(Colleague.query.order_by(Colleague.id).all())
     return render_template("colleagues.html", colleagues=colleagues)
 
+def login_required(f):
+    # ensures page is only viewable to logged in users
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "user" not in session:
+            flash("You need to be logged in to view this page")
+            return redirect(url_for('login')
+        return f(*args, **kwargs)
+    return decorated_function
+
 
 # this renders the department page and retrieves created departments
 # from the database
 @app.route("/departments")
+@login_required
 def departments():
     departments = list(Department.query.order_by(
         Department.department_name).all())
@@ -98,6 +109,7 @@ def departments():
 # this adds a department to the database but ensuring
 # only admin user can do this
 @app.route("/add_department", methods=["GET", "POST"])
+@login_required
 def add_department():
 
     if "user" not in session or session["user"] != "admin":
@@ -117,6 +129,7 @@ def add_department():
 # this edits a department in the database but
 # ensuring only admin user can do this
 @app.route("/edit_department/<int:department_id>", methods=["GET", "POST"])
+@login_required
 def edit_department(department_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -134,6 +147,7 @@ def edit_department(department_id):
 
 # this deletes a department from the database and only lets admin user do this
 @app.route("/delete_department/<int:department_id>")
+@login_required
 def delete_department(department_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -150,6 +164,7 @@ def delete_department(department_id):
 # this adds a colleague to the database but ensuring
 # only admin user can do this
 @app.route("/add_colleague", methods=["GET", "POST"])
+@login_required
 def add_colleague():
 
     if "user" not in session or session["user"] != "admin":
@@ -175,6 +190,7 @@ def add_colleague():
 # this edits a colleague to the database but ensuring
 # only admin user can do this
 @app.route("/edit_colleague/<int:colleague_id>", methods=["GET", "POST"])
+@login_required
 def edit_colleague(colleague_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -199,6 +215,7 @@ def edit_colleague(colleague_id):
 
 # this deletes a colleague from the database and only lets admin user do this
 @app.route("/delete_colleague/<int:colleague_id>")
+@login_required
 def delete_colleague(colleague_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -214,6 +231,7 @@ def delete_colleague(colleague_id):
 
 # this retrieves all data from mongo db and presents them in list form
 @app.route("/get_associate")
+@login_required
 def get_associate():
     associate = list(mongo.db.associate.find())
     return render_template("personal_info.html", associate=associate)
@@ -222,6 +240,7 @@ def get_associate():
 # this adds personal information to the database but ensuring
 # only admin user can do this
 @app.route("/add_associate", methods=["GET", "POST"])
+@login_required
 def add_associate():
 
     if "user" not in session or session["user"] != "admin":
@@ -248,6 +267,7 @@ def add_associate():
 # this edits personal information in the database but ensuring
 # only admin user can do this
 @app.route("/edit_associate/<associate_id>", methods=["GET", "POST"])
+@login_required
 def edit_associate(associate_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -276,6 +296,7 @@ def edit_associate(associate_id):
 # this deletes personal information in the database but ensuring
 # only admin user can do this
 @app.route("/delete_associate/<associate_id>")
+@login_required
 def delete_associate(associate_id):
 
     if "user" not in session or session["user"] != "admin":
@@ -290,6 +311,7 @@ def delete_associate(associate_id):
 # this route is for the search functionality for the mongodb
 # and presents them as a list
 @app.route("/search_info", methods=["GET", "POST"])
+@login_required
 def search_info():
     query = request.form.get("query")
     associate = list(mongo.db.associate.find({"$text": {"$search": query}}))
