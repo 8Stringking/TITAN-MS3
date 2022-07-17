@@ -1,6 +1,6 @@
 let M;
 
-let collapsible;
+let Collapsible;
 
 document.addEventListener('DOMContentLoaded', function() {
     //sidenav initialisation
