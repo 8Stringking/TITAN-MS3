@@ -1,7 +1,3 @@
-let M;
-
-let Collapsible;
-
 document.addEventListener('DOMContentLoaded', function() {
     //sidenav initialisation
     let sidenav = document.querySelectorAll('.sidenav');
