@@ -54,14 +54,14 @@
       </div>
       <!--department_id-->
       <div class="row">
-         <div class="input-field col s12">
+         <div class="input-field col s12" aria-haspopup="listbox" aria-labelledby="choose department">
             <select
                aria-label="Close-menu"
                name="department_id"
                id="department_id"
                class="validate"
                required>
-               <option value="" disabled selected aria-label="menu">Choose Department</option>
+               <option value="" disabled selected>Choose Department</option>
                <!--this is so the created departments display as an option-->
                {% for department in departments %}
                <option value="{{ department.id }}">
