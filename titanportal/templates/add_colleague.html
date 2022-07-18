@@ -59,9 +59,8 @@
                name="department_id"
                id="department_id"
                class="validate"
-               aria-label="choose department"
                required>
-               <option value="" disabled selected>Choose Department</option>
+               <option value="" disabled selected aria-label="menu">Choose Department</option>
                <!--this is so the created departments display as an option-->
                {% for department in departments %}
                <option value="{{ department.id }}">
