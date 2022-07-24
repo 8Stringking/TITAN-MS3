@@ -4,10 +4,18 @@
 <!--page title-->
 <h3 class="blue-text text-darken-4 center-align">Add Colleague</h3>
 
-<!--add colleague form-->
+<!-- 
+   this form is from materialize.css as is the rows for each field (first name,
+   last name, role, department_id) and the submit button,
+   this was done for consistancy in design.
+-->
+
+<!--add colleague form -->
+<!--materialize.css-->
 <div class="row card-panel transparent">
    <form class="col s12" method="POST" action="{{ url_for('add_colleague') }}">
       <!--First name-->
+      <!--materialize.css-->
       <div class="row">
          <div class="input-field col s12">
             <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
@@ -23,6 +31,7 @@
          </div>
       </div>
       <!--Last name-->
+      <!--materialize.css-->
       <div class="row">
          <div class="input-field col s12">
             <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
@@ -38,6 +47,7 @@
          </div>
       </div>
       <!--Role-->
+      <!--materialize.css-->
       <div class="row">
          <div class="input-field col s12">
             <i class="fas fa-pencil-alt prefix blue-text text-darken-4"></i>
@@ -53,6 +63,7 @@
          </div>
       </div>
       <!--department_id-->
+      <!--materialize.css-->
       <div aria-label="close-menu" class="row">
          <div class="input-field aria-label='close-menu' col s12">
             <select
@@ -78,6 +89,7 @@
          </div>
       </div>
       <!--submit button-->
+      <!--materialize.css-->
       <div class="row">
          <div class="col s12 center-align">
             <button type="submit" aria-label="add-colleague" class="btn-large blue darken-4">
