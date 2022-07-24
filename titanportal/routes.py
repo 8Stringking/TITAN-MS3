@@ -328,3 +328,23 @@ def internal_server_error(e):
     # note that we set the 500 status explicitly
     # https://flask.palletsprojects.com/ helped me achieve this
     return render_template('error.html'), 500
+
+
+@app.errorhandler(400)
+def handle_bad_request(e):
+    """
+        handles a 400 Bad Request error
+        and returns an error message to the user
+    """
+    message = "A Bad Request was made"
+    return render_template("error.html", error_status=e, message=message), 400
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+        handles a 404 Not Found error
+        and returns an error message to the user
+    """
+    message = "Sorry, we cannot find the page you are looking for!"
+    return render_template("error.html", error_status=e, message=message), 404
