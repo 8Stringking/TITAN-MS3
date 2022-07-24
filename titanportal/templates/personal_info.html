@@ -7,6 +7,7 @@
 </h3>
 
 <!--search function for the mongo db-->
+<!--this card/input component came from materialize.css-->
 <div class="row card-panel transparent">
    <form class="col s12" method="POST" action="{{ url_for('search_info') }}">
       <div class="row valign-wrapper center-align">
@@ -22,6 +23,7 @@
             <label for="query" aria-label="search-colleagues">Search Colleagues</label>
          </div>
          <!--search and reset button for the search bar-->
+         <!--this component came from materialize.css-->
          <div class="col s12 m4">
             <a href="{{ url_for('get_associate') }}"
                class="red darken-4 btn text-shadow">Reset</a>
@@ -33,6 +35,7 @@
    </form>
 </div>
 <!--for the collapsible menu that shows the created colleagues within the database-->
+<!--this component came from materialize.css-->
 {% if associate|length > 0 %}
 <ul class="collapsible">
    {% for associate in associate %}
@@ -51,6 +54,7 @@
             class="btn green accent-4">Edit</a>
          <a href="#modal-{{ associate._id }}" class="btn red modal-trigger">Delete</a>
          <!-- Modal -->
+         <!--this component came from materialize.css-->
          <div id="modal-{{ associate._id }}" class="modal">
             <div class="modal-content">
                <h4>Are you sure you want to delete this Colleague?</h4>
