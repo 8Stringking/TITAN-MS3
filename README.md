@@ -268,6 +268,7 @@ User story 9 | I the user, have the ability to log out, and am notified when thi
 User story 10 | I the user, am notified of any actions taken such as edit/delete | Pass
 Responsiveness | Is the application responsive across all devices? | Pass
 Accessibility | Is the application accessible to all users? | Pass (see accessibility section above)
+Error Handling | In the applications development is the error handlers to handle internal server errors and 404 errors? | Yes located in routes.py
 
 <a name="deployment-testing"></a>
 ## Deployment Testing
@@ -282,6 +283,10 @@ Console errors | Is there any errors in the console? | No, Pass
 Stability | Does using the forward and backward keys break the site? | No, Pass
 Stability | Does the site work as intended? | Yes, Pass
 Password | Does the site require a password length when registering? | Yes, minimum length 5, Pass
+Security | Can only logged in users access the pages on the application (minus the registration page) | Yes, Pass
+Error Handling | Does the application gracefully handle errors that the user may cause in the application and redirect the user back to the site without the use of the browsers navigation buttons? | Yes, Pass 
+Error Handling | Can a user break the site using URL manipulation? | No, this will be handled by 404 and internal server error handlers, Pass
+Links | are any of the links (on login page/register page/error page) broken and work as intended? | None broken, and work as intended, Pass
 
 
 
