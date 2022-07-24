@@ -138,6 +138,8 @@ During the development of this app, accessibility has been a big focus, as I und
 ![edit-personal-info-accessibility](titanportal/static/images/accessibility/edit-personal-accessibility.jpg)
 
 
+However i would like to state that I have identified a bug and a limitation of materialize  in regards to the select dropdown boxes. These can be found in add_colleague.html and edit_colleague.html. In my quest to make my site 100% accessible I found that the select boxes (dropdown boxes) materialize use create an input line of html only viewable in chromes developer tools. This is the location of where i would need to put the associated aria labels for this component, however due to not being able to access this code i was unable to make these pages 100% accessible and instead they are sitting in the green at 91%.
+
 <a name="website-walkthrough"></a>
 # Website Walkthrough
   [Go to the top](#contents)
@@ -330,6 +332,8 @@ This is the html validation for Register page.
 One bug i had during the creation of this project was writing a search bar for the postgresql database using ORM sqlalchemy language which i unfortunately had to take out of this project. I was really hoping that i could provide this as i believe it would complete the app, however i was unable to get this consistantly working so its something il be looking to add as soon as ive figured it out.
 
 The is no console errors, nor any present errors while checking in [Chrome](https://www.google.com/intl/en_uk/chrome/) Dev Toolswhile the app is running or performing tasks.
+
+I have identified a bug and a limitation of materialize (previously stated in accessibility section) in regards to the select dropdown boxes. These can be found in add_colleague.html and edit_colleague.html. In my quest to make my site 100% accessible I found that the select boxes (dropdown boxes) materialize use create an input line of html only viewable in chromes developer tools. This is the location of where i would need to put the associated aria labels for this component, however due to not being able to access this code i was unable to make these pages 100% accessible and instead they are sitting in the green at 91%.
 
 
 <a name="deployment"></a>
