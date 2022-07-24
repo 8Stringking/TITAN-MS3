@@ -42,7 +42,7 @@ This is why in developing this app, we have used POSTGRESQL and SQLALCHEMY to cr
 
 The target audience for this application would be any company with a large number of staff, it can also be used on a smaller scale but the inteded target audience is definately large companies.
 
-In the creation of this app, security has been a focus of ours. Weve used Werkzeug to hash passwords and included defensive programming for users aswel. From my experience from working in high staff number stores, I know that security is important. This is why we have used defensive programming to only allow the Admin user to be able to delete/add/edit any information on the app. This is to keep control of the app in Senior managements hands. As the importancce of this to be kept accurate for a business is imperative.
+In the creation of this app, security has been a focus of ours. Weve used Werkzeug to hash passwords and included defensive programming for users aswel. We have also restricted access to the site for only logged in users, apart from the register page so users can create a login. We have also put a minimum password length of 5 characters in in an effort for users to create stronger passwords for their accounts. From my experience from working in high staff number stores, I know that security is important. This is why we have used defensive programming to only allow the Admin user to be able to delete/add/edit any information on the app. This is to keep control of the app in Senior managements hands. As the importancce of this to be kept accurate for a business is imperative.
 
 I think it definately meets the users demands and expectations of the site. That being a completely responsive modern looking application that can restrict access to help keep it secure and that delivers on being able to structure and better organise your colleagues details.
 
@@ -281,6 +281,8 @@ Code checked | Has the code been checked for errors? | Yes, Pass
 Console errors | Is there any errors in the console? | No, Pass
 Stability | Does using the forward and backward keys break the site? | No, Pass
 Stability | Does the site work as intended? | Yes, Pass
+Password | Does the site require a password length when registering? | Yes, minimum length 5, Pass
+
 
 
 <a name="code-validation"></a>
