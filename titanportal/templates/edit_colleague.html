@@ -66,6 +66,11 @@
                id="department_id"
                class="validate"
                required>
+               <!--
+                  this is a select dropdown box from materialize.css, unfortunately due to the limitations of
+                  materialize i am unable to make this element 100% accessibile,
+                  however the page now reads at 91% overall
+               -->
                <option value="" disabled>Choose Department</option>
                <!--this is so the field for department autofills with colleague assigned department-->
                {% for department in departments %} 
