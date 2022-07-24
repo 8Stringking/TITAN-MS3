@@ -112,6 +112,15 @@ One thing i havent done is hide Nav Bar Elements. Usually these consist of regis
 This is the data-schema devised for this application on the relational database side.
 ![Titan-schema](titanportal/static/images/entity-relationship-diagram.jpg)
 
+Entity Relationship Diagram KEY:
+* colleague_id = This is an Integer
+* first_name = This is a string
+* last_name = This is a string
+* role = This is a string
+* department_id = This is an Integer
+* department_name = This is a string
+* id = This in an Integer
+
 This entity relationship diagram shows a one to many relationship between the colleague id, and the department id, meaning many colleagues can go into one department, and that not many departments can go into a colleague.
 
 In the relational database im using an id, of colleague and department to attatch these two pieces of data together (the relationship), and the compenents within them. In the colleague model im attatching the first, and last name and role and department id as the foreign key to this table of data. In the department table im simply using the id, department_name and the colleague relationship. 
