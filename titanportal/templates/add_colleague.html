@@ -64,7 +64,7 @@
       </div>
       <!--department_id-->
       <!--materialize.css-->
-      <div aria-label="close-menu" class="row">
+      <div class="row">
          <div class="input-field aria-label='close-menu' col s12">
             <select
                aria-label="Close-menu"
@@ -75,13 +75,14 @@
                <!--
                   this is a select dropdown box from materialize.css, unfortunately due to the limitations of
                   materialize i am unable to make this element 100% accessibile,
-                  however the page now reads at 91% overall
+                  however the page now reads at 91% overall, with showing html validation errors involving aria 
+                  labels and label tags, in an effort to remove these errors reduced accessibility. Please refer
+                  to bug section where this is explained further.
                -->
                <option value="" disabled aria-label="choose-department" selected>Choose Department</option>
                <!--this is so the created departments display as an option-->
                {% for department in departments %}
                <option value="{{ department.id }}">
-               <label for="department_id" aria-label="department_id"></label>
                   {{ department.department_name }}
                </option>
                {% endfor %}
