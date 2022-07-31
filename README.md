@@ -110,7 +110,7 @@ One thing i havent done is hide Nav Bar Elements. Usually these consist of regis
   [Go to the top](#contents)
 
 This is the data-schema devised for this application on the relational database side.
-![Titan-schema](titanportal/static/images/entity-relationship-diagram.jpg)
+![Titan-schema](titanportal/static/images/entity-relationship-diagram-updated.jpg)
 
 Entity Relationship Diagram KEY:
 * colleague_id = This is an Integer
